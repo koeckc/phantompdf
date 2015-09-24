@@ -173,6 +173,7 @@ if (output.substr(-4) === '.pdf') {
   page.paperSize = paper_size_options;
 }
 page.zoomFactor = zoom;
+page.settings.resourceTimeout = 3000;
 
 // cookies injection
 phantom.cookiesEnabled = false;
