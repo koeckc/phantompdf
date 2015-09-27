@@ -150,7 +150,8 @@ if (output.substr(-4) === '.pdf') {
       paper_size_options['header'] = {
         height: header.shift(),
         contents: phantom.callback(function(pageNum, pageTotal){
-          return header.join('*').replace(new RegExp('%{pageNum}', 'g'), pageNum).replace(new RegExp('%{pageTotal}', 'g'), pageTotal);
+          fs2 = require('fs');
+          return fs2.read(header.join('*'));
         })
       };
     }
@@ -173,7 +174,7 @@ if (output.substr(-4) === '.pdf') {
   page.paperSize = paper_size_options;
 }
 page.zoomFactor = zoom;
-page.settings.resourceTimeout = 3000;
+//page.settings.resourceTimeout = 3000;
 
 // cookies injection
 phantom.cookiesEnabled = false;
